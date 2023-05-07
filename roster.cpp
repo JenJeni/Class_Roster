@@ -6,6 +6,7 @@ using namespace std;
 
 #include "roster.h"
 
+//Parse data
 void Roster::parse(string row)
 {
 	size_t rSide = row.find(',');
@@ -60,6 +61,7 @@ void Roster::parse(string row)
 	add(studentId, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram);
 }
 
+//Add student to roster
 void Roster::add(string stuId, string fName, string lName, string eMail, int a, int n1, int n2, int n3, Degree dp)
 {
 	int daysInCourse[3] = { n1, n2, n3 };
@@ -68,6 +70,7 @@ void Roster::add(string stuId, string fName, string lName, string eMail, int a, 
 	++studentIndex;
 }
 
+//Rremoves student from roster
 void Roster::removeStudent(string studentId)
 {
 	bool foundStudent = false;
@@ -93,7 +96,7 @@ void Roster::removeStudent(string studentId)
 	}
 }
 
-
+//Displays all students
 void Roster::printAll()
 {
 	for (int i = 0; i < studentIndex; ++i)
@@ -102,6 +105,7 @@ void Roster::printAll()
 	}
 }
 
+//Displays average days in course
 void Roster::printAverageDaysInCourse(string studentId)
 {
 	for (int i = 0; i < studentIndex; ++i)
@@ -117,6 +121,7 @@ void Roster::printAverageDaysInCourse(string studentId)
 	}
 }
 
+//Displays invalid email addresses
 void Roster::printInvalidEmails()
 {
 	for (int i = 0; i < (studentIndex - 1); ++i)
@@ -133,6 +138,7 @@ void Roster::printInvalidEmails()
 	}
 }
 
+//Displays students per degree type
 void Roster::printByDegreeProgram(Degree degreeProgram)
 {
 	for (int i = 0; i < studentIndex; ++i)
